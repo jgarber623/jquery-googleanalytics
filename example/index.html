@@ -7,7 +7,10 @@
 </head>
 <body>
 	
-	<a href="http://www.google.com/" data-track-event="Homepage, Google, Google" onclick="return false;">Google</a>
+	<ul>
+		<li><a href="http://www.google.com/" data-track-method="_trackEvent" data-track-params="Homepage, Google, Google, 10.99, true" onclick="return false;">Google (_trackEvent)</a></li>
+		<li><a href="http://www.facebook.com/" data-track-method="_trackSocial" data-track-params="Facebook, Like, http://www.puma.com/running, /running" onclick="return false;">Facebook (_trackSocial)</a></li>
+	</ul>
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
 	<script src="../jquery-googleanalytics.js"></script>
