@@ -43,8 +43,6 @@
 				param_components[4] = ( param_components[4] && param_components[4].toLowerCase() === "true" ) ? true : false;
 			}
 			
-			console.log( [method].concat( param_components ) )
-			
 			if ( _gaq !== "undefined" ) {
 				_gaq.push( [method].concat( param_components ) );
 			}
