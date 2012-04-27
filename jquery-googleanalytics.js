@@ -35,7 +35,16 @@
 			return this;
 		},
 		
-		push: function( method, param_components ) {
+		push: function( method, params ) {
+			var param_components = params.split( this.config.separator );
+			
+			if ( method === "_trackEvent" ) {
+				param_components[3] = ( !param_components[3] || param_components[3] === "" ) ? 0 : parseInt( param_components[3], 10 );
+				param_components[4] = ( param_components[4] && param_components[4].toLowerCase() === "true" ) ? true : false;
+			}
+			
+			console.log( [method].concat( param_components ) )
+			
 			if ( _gaq !== "undefined" ) {
 				_gaq.push( [method].concat( param_components ) );
 			}
@@ -45,15 +54,9 @@
 			if ( event.type === "mousedown" || event.which === 13 ) {
 				var $target = $( event.currentTarget ),
 					method = $target.data( "track-method" ),
-					params = $target.data( "track-params" ),
-					param_components = params.split( this.config.separator );
+					params = $target.data( "track-params" );
 				
-				if ( method === "_trackEvent" ) {
-					param_components[3] = ( !param_components[3] || param_components[3] === "" ) ? 0 : parseInt( param_components[3], 10 );
-					param_components[4] = ( param_components[4] && param_components[4].toLowerCase() === "true" ) ? true : false;
-				}
-				
-				this.push( method, param_components );
+				this.push( method, params );
 			}
 		}
 	};
