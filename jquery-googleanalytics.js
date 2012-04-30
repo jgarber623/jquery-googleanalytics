@@ -19,20 +19,14 @@
 	
 	GoogleAnalytics.prototype = {
 		defaults: {
-			selectors: "a, button",
+			selectors: "a[data-track-method], button[data-track-method]",
 			separator: ", "
 		},
 		
 		init: function() {
 			this.config = $.extend( {}, this.defaults, this.options, this.metadata );
 			
-			var selectors_components = this.config.selectors.split( "," );
-			
-			for ( i = 0, j = selectors_components.length; i < j; i++ ) {
-				selectors_components[i] = $.trim( selectors_components[i] ) + "[data-track-method]";
-			}
-			
-			this.$elem.on( "mousedown.googleanalytics keydown.googleanalytics", selectors_components.join(), $.proxy( this.track, this ) );
+			this.$elem.on( "mousedown.googleanalytics keydown.googleanalytics", this.config.selectors, $.proxy( this.track, this ) );
 			
 			return this;
 		},
