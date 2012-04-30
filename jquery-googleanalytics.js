@@ -8,6 +8,8 @@
 
 ;(function( $, window, document, undefined ) {
 	
+	window._gaq = window._gaq || [];
+	
 	var GoogleAnalytics = function( elem, options ) {
 		this.elem = elem;
 		this.$elem = $( elem );
@@ -43,9 +45,7 @@
 				param_components[4] = ( param_components[4] && param_components[4].toLowerCase() === "true" ) ? true : false;
 			}
 			
-			if ( _gaq !== "undefined" ) {
-				_gaq.push( [method].concat( param_components ) );
-			}
+			_gaq.push( [method].concat( param_components ) );
 		},
 		
 		track: function( event ) {
