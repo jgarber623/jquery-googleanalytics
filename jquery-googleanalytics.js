@@ -1,5 +1,5 @@
 /**
- * @name jQuery Google Analytics Event Tracking (https://github.com/jgarber623/jquery-googleanalytics)
+ * @name jQuery Google Analytics Event Tracking plugin (https://github.com/jgarber623/jquery-googleanalytics)
  * @author Jason Garber
  * @copyright (cc) Jason Garber (http://sixtwothree.org and http://www.viget.com)
  * 
